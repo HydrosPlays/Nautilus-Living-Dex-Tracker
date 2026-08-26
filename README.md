@@ -1,4 +1,4 @@
-# Nautilus 🐚
+# Nautilus
 
 **Nautilus** — a local, Pokédex-themed app for tracking your **Living Dex** completion. Like the
 shell it's named for, you fill it chamber by chamber toward a complete collection: a separate
