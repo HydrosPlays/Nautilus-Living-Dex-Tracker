@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="sea" cx="38%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#2fb6d6"/>
+      <stop offset="55%" stop-color="#0e6f95"/>
+      <stop offset="100%" stop-color="#08324c"/>
+    </radialGradient>
+  </defs>
+  <circle cx="50" cy="50" r="46" fill="url(#sea)" stroke="#04263a" stroke-width="4"/>
+  <!-- nautilus spiral -->
+  <path d="M57 50 A6 6 0 0 1 52 57.1 A8.5 8.5 0 0 1 41.9 50 A12 12 0 0 1 52 35.7 A17 17 0 0 1 72.4 50 A24 24 0 0 1 52 78.9"
+        fill="none" stroke="#ffe7b3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="52" cy="50" r="2.6" fill="#ffe7b3"/>
+</svg>

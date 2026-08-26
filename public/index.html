@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nautilus — Living Dex</title>
+  <link rel="icon" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Pokédex top shell ===== -->
+  <header class="pokedex-top">
+    <div class="lights">
+      <span class="lens"><span class="lens-shine"></span></span>
+      <span class="mini red"></span>
+      <span class="mini yellow"></span>
+      <span class="mini green"></span>
+    </div>
+    <div class="brand">
+      <h1>Nautilus</h1>
+      <p>Living Dex Tracker</p>
+    </div>
+    <div class="top-actions">
+      <button id="spriteToggle" class="pill-btn" title="Switch sprite art">
+        <span class="pill-icon">🎨</span><span id="spriteLabel">HOME</span>
+      </button>
+      <button id="themeToggle" class="pill-btn" title="Toggle light / dark">
+        <span id="themeIcon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== View switch ===== -->
+  <nav class="viewbar">
+    <button class="view-tab active" data-view="tracker">Tracker</button>
+    <button class="view-tab" data-view="reports">Reports</button>
+    <span class="save-state" id="saveState">Saved</span>
+  </nav>
+
+  <!-- ===== TRACKER VIEW ===== -->
+  <main id="trackerView">
+    <section class="controls">
+      <div class="control game-control">
+        <label for="gameSelect">Game</label>
+        <div class="select-wrap">
+          <select id="gameSelect"></select>
+        </div>
+      </div>
+
+      <div class="control">
+        <label>Dex</label>
+        <div class="segmented" id="modeToggle">
+          <button class="seg active" data-mode="normal">Normal</button>
+          <button class="seg" data-mode="shiny">✨ Shiny</button>
+        </div>
+      </div>
+
+      <div class="control grow">
+        <label for="search">Search</label>
+        <input id="search" type="search" placeholder="Name or #number…" autocomplete="off" />
+      </div>
+
+      <div class="control">
+        <label for="filterSelect">Show</label>
+        <div class="select-wrap">
+          <select id="filterSelect">
+            <option value="all">All</option>
+            <option value="caught">Caught</option>
+            <option value="uncaught">Missing</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="control gen-control" id="genControl" hidden>
+        <label for="genSelect">Gen</label>
+        <div class="select-wrap">
+          <select id="genSelect">
+            <option value="0">All</option>
+            <option value="1">Gen 1</option>
+            <option value="2">Gen 2</option>
+            <option value="3">Gen 3</option>
+            <option value="4">Gen 4</option>
+            <option value="5">Gen 5</option>
+            <option value="6">Gen 6</option>
+            <option value="7">Gen 7</option>
+            <option value="8">Gen 8</option>
+            <option value="9">Gen 9</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Progress summary for the selected game + mode -->
+    <section class="summary" id="summary">
+      <div class="summary-main">
+        <div class="summary-titles">
+          <h2 id="summaryGame">—</h2>
+          <span class="region-tag" id="summaryRegion"></span>
+        </div>
+        <div class="summary-actions">
+          <button id="markAllBtn" class="ghost-btn">Mark all</button>
+          <button id="clearAllBtn" class="ghost-btn danger">Clear</button>
+        </div>
+      </div>
+      <div class="progress-row">
+        <div class="pct" id="summaryPct">0%</div>
+        <div class="bar-wrap">
+          <div class="bar"><div class="bar-fill" id="summaryBar"></div></div>
+          <div class="counts"><span id="summaryCounts">0 / 0</span> caught</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="grid"></section>
+    <p class="empty-note" id="emptyNote" hidden>No Pokémon match your filters.</p>
+  </main>
+
+  <!-- ===== REPORTS VIEW ===== -->
+  <main id="reportsView" hidden>
+    <section class="report-hero">
+      <div class="report-card highlight">
+        <h3>National Living Dex</h3>
+        <div class="dual">
+          <div class="dual-col">
+            <span class="dual-label">Normal</span>
+            <span class="dual-pct" id="natNormalPct">0%</span>
+            <span class="dual-count" id="natNormalCount">0 / 0</span>
+          </div>
+          <div class="dual-col shiny">
+            <span class="dual-label">✨ Shiny</span>
+            <span class="dual-pct" id="natShinyPct">0%</span>
+            <span class="dual-count" id="natShinyCount">0 / 0</span>
+          </div>
+        </div>
+      </div>
+      <div class="report-card">
+        <h3>All Games Combined</h3>
+        <div class="dual">
+          <div class="dual-col">
+            <span class="dual-label">Normal</span>
+            <span class="dual-pct" id="allNormalPct">0%</span>
+            <span class="dual-count" id="allNormalCount">0 / 0</span>
+          </div>
+          <div class="dual-col shiny">
+            <span class="dual-label">✨ Shiny</span>
+            <span class="dual-pct" id="allShinyPct">0%</span>
+            <span class="dual-count" id="allShinyCount">0 / 0</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <h3 class="report-subhead">Per-Game Completion</h3>
+    <section class="report-table" id="reportTable"></section>
+  </main>
+
+  <footer class="foot">
+    <span>Sprites &amp; data from <strong>PokeAPI</strong>. Not affiliated with Nintendo / Game Freak.</span>
+    <span id="footSaved"></span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

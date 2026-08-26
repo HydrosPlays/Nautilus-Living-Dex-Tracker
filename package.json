@@ -1,0 +1,13 @@
+{
+  "name": "nautilus",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nautilus — a local Living Dex completion tracker (normal + shiny) for every mainline Pokémon game, using PokeAPI sprites.",
+  "scripts": {
+    "start": "node server.js",
+    "build-data": "node scripts/build-data.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
