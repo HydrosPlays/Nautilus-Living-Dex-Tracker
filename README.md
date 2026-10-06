@@ -1,5 +1,7 @@
-# Nautilus Living Dex Tracker
-
+<p align="center">
+  <img src="nautilus-living-dex-tracker.png" width="350" alt="Nacre logo">
+</p>
+<h1 align="center"> Nautilus Living Dex Tracker</h1>
 <p>
   <img src="https://img.shields.io/badge/License-GPLv3-green?style=flat" alt="License: GPLv3">
   <img src="https://img.shields.io/github/v/release/HydrosPlays/Nautilus-Living-Dex-Tracker?include_prereleases&style=flat&label=Version&color=orange" alt="Latest version">
