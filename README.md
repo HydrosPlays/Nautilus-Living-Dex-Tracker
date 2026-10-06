@@ -1,5 +1,12 @@
 # Nautilus Living Dex Tracker
 
+<p>
+  <img src="https://img.shields.io/badge/License-GPLv3-green?style=flat" alt="License: GPLv3">
+  <img src="https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-blue?style=flat" alt="Platform: Windows 10 | 11">
+  <img src="https://img.shields.io/github/v/release/HydrosPlays/Nautilus-Living-Dex-Tracker?include_prereleases&style=flat&label=Version&color=orange" alt="Latest version">
+  <a href="https://github.com/HydrosPlays/Nautilus-Living-Dex-Tracker/releases"><img src="https://img.shields.io/github/downloads/HydrosPlays/Nautilus-Living-Dex-Tracker/total?style=flat&label=Downloads&color=purple" alt="Total downloads"></a>
+</p>
+
 **Nautilus** — a local, Pokédex-themed app for tracking your **Living Dex** completion. Like the
 shell it's named for, you fill it chamber by chamber toward a complete collection: a separate
 check-off grid for the **Normal** and **Shiny** dex of every mainline Pokémon game
